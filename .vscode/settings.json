@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "cmath": "cpp",
+        "nec_receive.c": "cpp"
+    }
+}
