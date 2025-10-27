@@ -34,9 +34,36 @@ pico_add_extra_outputs(${DOUBLE})
 pico_enable_stdio_usb(${DOUBLE} 0)
 pico_enable_stdio_uart(${DOUBLE} 1)
 
+set(COMBINED pico-combined-rainbow)
+
+project(${COMBINED} C CXX ASM)
+
+# Add your source files
+add_executable(${COMBINED}
+    src/rainbow.cpp
+)
+
+target_compile_definitions(${COMBINED} PUBLIC PIXEL_STRINGS=1)
+
+# Link required libraries
+target_link_libraries(${COMBINED} LINK_PUBLIC
+    pico_stdlib
+    pico_neopixel
+    pico_bootsel_via_double_reset
+    hardware_pio
+)
+
+# create map/bin/hex file etc.
+pico_add_extra_outputs(${COMBINED})
+
+# Disable USB serial and enable UART serial
+pico_enable_stdio_usb(${COMBINED} 0)
+pico_enable_stdio_uart(${COMBINED} 1)
+
 # Set up files for the release packages
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/${DOUBLE}.uf2
+    ${CMAKE_CURRENT_BINARY_DIR}/${COMBINED}.uf2
     ${CMAKE_CURRENT_LIST_DIR}/README.md
     DESTINATION .
 )

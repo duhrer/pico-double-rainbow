@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="201.06374mm"
+   height="198mm"
+   viewBox="0 0 759.92595 748.34647"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="light-string-layout.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0181385"
+     inkscape:cx="370.28359"
+     inkscape:cy="501.89633"
+     inkscape:window-width="3440"
+     inkscape:window-height="1374"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Diamond"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Diamond"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.45)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,-7.0710768 -7.0710894,0 0,7.0710589 7.0710462,0 Z"
+         id="path19" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-41.943257,-187.08663)">
+    <g
+       id="g6">
+      <path
+         id="rect1"
+         style="fill:none;stroke:#000000;stroke-width:0.755907;stroke-linecap:round;stroke-linejoin:round"
+         d="M 42.32121,187.46458 H 801.49128 V 935.05513 H 42.32121 Z" />
+      <path
+         id="path1"
+         style="fill:none;stroke:#000000;stroke-width:0.755904;stroke-linecap:round;stroke-linejoin:round"
+         d="M 58.195224,203.3386 H 290.25822 V 920.69295 H 58.195224 Z" />
+      <path
+         id="path2"
+         style="fill:none;stroke:#000000;stroke-width:0.755904;stroke-linecap:round;stroke-linejoin:round"
+         d="M 306.88814,202.58268 H 538.57318 V 918.77129 H 306.88814 Z" />
+      <path
+         id="path3"
+         style="fill:none;stroke:#000000;stroke-width:0.755904;stroke-linecap:round;stroke-linejoin:round"
+         d="M 555.20312,202.58268 H 784.9984 V 919.93704 H 555.20312 Z" />
+    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.88976;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:11.3386;stroke-opacity:1"
+       id="rect153"
+       width="38.305199"
+       height="53.52906"
+       x="45.380913"
+       y="513.66302"
+       ry="12.213011" />
+    <g
+       id="g159"
+       style="stroke-width:1.88976388;stroke-dasharray:none">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 396.85284,242.49889 h 49.8552"
+         id="path9" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 447.81065,242.47157 49.2414,7.79907"
+         id="path11" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 496.55855,250.22495 47.41511,15.4061"
+         id="path12" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 545.03075,265.94579 44.4213,22.63379"
+         id="path13" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 589.71145,287.97038 40.33371,29.30415"
+         id="path14" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 630.95323,317.90052 35.25295,35.25295"
+         id="path15" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 665.8338,352.82644 29.30416,40.3337"
+         id="path16" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 695.80815,394.0361 22.63378,44.42131"
+         id="path17" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 717.52593,436.26885 15.40611,47.41511"
+         id="path20" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 733.29875,484.72415 7.79907,49.2414"
+         id="path21" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 740.98878,533.4821 v 49.8552"
+         id="path22" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 741.01609,584.4399 -7.79907,49.2414"
+         id="path23" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 733.87657,633.73974 -15.40611,47.41511"
+         id="path24" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 718.15572,682.21193 -22.63379,44.42131"
+         id="path25" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 695.71789,726.17802 -29.30416,40.33371"
+         id="path26" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 665.78774,767.41981 -35.25295,35.25295"
+         id="path27" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 628.91008,803.44858 -40.3337,29.30415"
+         id="path49" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 587.70042,833.42293 -44.4213,22.63379"
+         id="path50" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 543.70521,855.80362 -47.41511,15.4061"
+         id="path51" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 495.24991,871.57643 -49.2414,7.79907"
+         id="path52" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 446.15673,880.02081 h -49.8552"
+         id="path53" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 395.19892,880.04813 -49.2414,-7.79907"
+         id="path54" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 346.45101,872.29474 -47.41512,-15.4061"
+         id="path55" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 297.97882,856.5739 -44.4213,-22.63378"
+         id="path56" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 255.58499,835.1723 215.25128,805.86815"
+         id="path58" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 214.34319,805.24216 179.09024,769.98921"
+         id="path59" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 179.46263,770.31625 150.15848,729.98254"
+         id="path60" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 149.48828,729.10658 126.8545,684.68527"
+         id="path61" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 126.28658,685.02565 110.88046,637.61053"
+         id="path62" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 110.51377,636.57034 -7.79908,-49.2414"
+         id="path63" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 102.82374,587.8124 V 537.9572"
+         id="path64" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 143.06841,526.63988 111.75215,487.84771"
+         id="path65" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 111.20693,487.82712 15.40612,-47.41511"
+         id="path68" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 126.92777,439.35493 22.63379,-44.42131"
+         id="path69" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 149.3656,395.38885 29.30416,-40.33371"
+         id="path70" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 179.29574,354.14706 35.25295,-35.25295"
+         id="path71" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 214.04948,318.45915 254.38319,289.155"
+         id="path72" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 255.25914,288.48481 44.42131,-22.63379"
+         id="path73" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 299.25435,266.10412 47.41511,-15.4061"
+         id="path74" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 347.70965,250.33131 49.2414,-7.79907"
+         id="path75" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 397.12795,405.3247 h 49.8552"
+         id="path87" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 446.96775,405.5222 47.4151,15.4061"
+         id="path106" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 493.16085,420.38484 40.3337,29.30415"
+         id="path107" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 533.36605,449.83972 29.3041,40.33369"
+         id="path108" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 562.27225,488.59195 15.4061,47.41512"
+         id="path109" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 577.48585,536.05345 v 49.85519"
+         id="path110" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 577.62505,584.57853 -15.4061,47.41512"
+         id="path111" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 562.03595,631.91797 -29.3042,40.33369"
+         id="path112" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 532.92825,672.7713 -40.3337,29.30415"
+         id="path114" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 492.49085,701.90662 -47.4151,15.4061"
+         id="path115" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 446.38375,717.03414 h -49.8552"
+         id="path116" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 396.54395,716.83664 -47.4151,-15.4061"
+         id="path117" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 350.38045,702.4761 -40.3337,-29.30415"
+         id="path118" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 310.17525,673.02122 -29.3041,-40.33369"
+         id="path119" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 281.54025,633.84547 -15.4061,-47.41511"
+         id="path120" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 281.66324,584.96529 265.40209,537.8366"
+         id="path121" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 265.35405,537.48212 280.76015,490.067"
+         id="path123" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 280.94325,490.14268 29.3041,-40.33369"
+         id="path124" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 309.35295,450.80317 40.3337,-29.30415"
+         id="path125" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 349.79025,421.66785 47.4151,-15.4061"
+         id="path126" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:11.3386;stroke-opacity:1"
+         d="m 83.686102,538.21762 18.661508,-0.49109"
+         id="path153" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 173.51613,564.94508 142.19987,526.15291"
+         id="path154" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="M 215.75382,594.70381 175.91,564.73699"
+         id="path155"
+         inkscape:transform-center-x="-13.049466"
+         inkscape:transform-center-y="10.102913" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.88976388;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1.13386;stroke-opacity:1;marker-end:url(#Diamond)"
+         d="m 265.02831,588.12894 -49.49907,5.94835"
+         id="path156" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:12px;line-height:0.6;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:11.3386;stroke-opacity:1"
+       x="-540.97089"
+       y="68.498466"
+       id="text156"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan156"
+         x="-540.97089"
+         y="68.498466">Pico</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:12px;line-height:0.6;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:11.3386;stroke-opacity:1"
+       x="517.61938"
+       y="246.45079"
+       id="text157"
+       transform="rotate(46.478648)"><tspan
+         sodipodi:role="line"
+         id="tspan157"
+         x="517.61938"
+         y="246.45079">&quot;Bridge&quot; (unlit)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:12px;line-height:0.6;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:11.3386;stroke-opacity:1"
+       x="-94.900612"
+       y="367.03537"
+       id="text158"
+       transform="rotate(-45)"><tspan
+         sodipodi:role="line"
+         id="tspan158"
+         x="-94.900612"
+         y="367.03537">Outer Ring ~40 Lights</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:12px;line-height:0.6;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:11.3386;stroke-opacity:1"
+       x="693.06"
+       y="-65.567261"
+       id="text159"
+       transform="rotate(45)"><tspan
+         sodipodi:role="line"
+         id="tspan159"
+         x="693.06"
+         y="-65.567261">Inner Ring ~20 Lights</tspan></text>
+  </g>
+</svg>

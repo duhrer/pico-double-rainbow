@@ -9,61 +9,63 @@
 #include "nec_receive_library/nec_receive.c"
 
 #include "colours.h"
+#include "common_defaults.h"
 
-# define IR_RX_GPIO_PIN 29
+#ifndef PIXEL_STRINGS
+#define PIXEL_STRINGS 2
+#endif
 
-// See: https://lectronz.com/products/rp2040-stamp-round-carrier
-#define INNER_RING_PIN 24
-#define INNER_RING_PIXELS 16
+#if PIXEL_STRINGS == 1
+    #define COMBINED_PIXELS_PIN 24
+    #define COMBINED_PIXELS 66
 
-#define OUTER_RING_PIN 26
-#define OUTER_RING_PIXELS 60
+    #define INNER_RING_PIXEL_OFFSET 46
+    #define INNER_RING_PIXELS 20
 
-Adafruit_NeoPixel inner_pixels = Adafruit_NeoPixel(INNER_RING_PIXELS, INNER_RING_PIN, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel outer_pixels = Adafruit_NeoPixel(OUTER_RING_PIXELS, OUTER_RING_PIN, NEO_GRB + NEO_KHZ800);
+    #define OUTER_RING_PIXEL_OFFSET 0
+    #define OUTER_RING_PIXELS 40
+
+    // Brightness limits and "stepping"
+    #define MAX_BRIGHTNESS 255
+    #define MIN_BRIGHTNESS 31
+    #define BRIGHTNESS_DELTA 32
+
+    Adafruit_NeoPixel combined_pixels = Adafruit_NeoPixel(COMBINED_PIXELS, COMBINED_PIXELS_PIN, NEO_GRB + NEO_KHZ800);
+
+#elif PIXEL_STRINGS == 2
+    // See: https://lectronz.com/products/rp2040-stamp-round-carrier
+    #define INNER_RING_PIN 24
+    #define INNER_RING_PIXELS 16
+
+    #define OUTER_RING_PIN 26
+    #define OUTER_RING_PIXELS 60
+
+    // Brightness limits and "stepping"
+    #define MAX_BRIGHTNESS 176
+    #define MIN_BRIGHTNESS 16
+    #define BRIGHTNESS_DELTA 32
+
+    Adafruit_NeoPixel inner_pixels = Adafruit_NeoPixel(INNER_RING_PIXELS, INNER_RING_PIN, NEO_GRB + NEO_KHZ800);
+    Adafruit_NeoPixel outer_pixels = Adafruit_NeoPixel(OUTER_RING_PIXELS, OUTER_RING_PIN, NEO_GRB + NEO_KHZ800);
+#endif
+
+// Common "state" variables
 
 bool keep_running = true;
-
 int ticks = 0;
-
-PIO pio = pio0;
 int rx_sm;
 
+// Used for "off" and "on" toggle
 bool isLit = true;
 
 // TODO: This should be a more defined structure
-int colourMode = 2; // 0: Solid, 1: Discrete Rainbow, 2: Continuous Rainbow, 999: Error
+int colourMode = 1; // 0: Solid, 1: Discrete Rainbow, 2: Continuous Rainbow, 999: Error
 
 TARGET_COLOUR current_colour = TC_BLUE;
-
-#define MS_PER_TICK 10
-
-#define MAX_BRIGHTNESS 176
-#define MIN_BRIGHTNESS 16
-#define BRIGHTNESS_DELTA 32
-
 int combined_brightness = 160;
 
-#define INNER_DIRECTION 1
-#define INNER_BAND_WIDTH 11
-
-#define OUTER_DIRECTION -1
-#define OUTER_BAND_WIDTH 45
-
-#define R_TICKS 25
-#define G_TICKS 20
-#define B_TICKS 20
-
-// Oscillation for solid colours and colour wheel
-
-// Oscillate above and below the current brightness
-#define COLOUR_PULSE_RANGE 16
-
-// How often to update the brightness offset
-#define COLOUR_PULSE_TICKS 10
-
-int colour_pulse_brightness_offset = 0;
-int colour_pulse_direction = 1;
+int colour_pulse_brightness_percentage = 0;
+int colour_pulse_brightness_direction = 1;
 
 int inner_r_index = 0;
 int inner_g_index = 6;
@@ -73,33 +75,35 @@ int outer_r_index = 0;
 int outer_g_index = 20;
 int outer_b_index = 40;
 
-#define TICKS_PER_CONTINUOUS_COLOUR_CHANGE 200
-
-#define TICKS_PER_ERROR_TOGGLE 100
-
 int continuous_colour_change_index = 0;
+
+// End "state" variables
 
 void setup () {
     // NeoPixel Init
-    inner_pixels.begin();
-    inner_pixels.clear();
-    inner_pixels.show();
+    #if PIXEL_STRINGS == 1
+        combined_pixels.begin();
+        combined_pixels.clear();
+        combined_pixels.show();
+    #elif PIXEL_STRINGS == 2
+        inner_pixels.begin();
+        inner_pixels.clear();
+        inner_pixels.show();
 
-    outer_pixels.begin();
-    outer_pixels.clear();
-    outer_pixels.show();
+        outer_pixels.begin();
+        outer_pixels.clear();
+        outer_pixels.show();
+    #endif
 
     stdio_init_all();
 
-    rx_sm = nec_rx_init(pio, IR_RX_GPIO_PIN);
+    rx_sm = nec_rx_init(pio0, IR_RX_GPIO_PIN);
 
     if (rx_sm == -1) {
         colourMode = 999;
     }
 }
 
-// This is currently hard-coded to be quite low as the performance of the outer
-// ring of pixels is inconsistent when the power demand is too high.
 void fill_band_values (int numPixels, int band_width, int index, int values[]) {
     int dot_intensity = combined_brightness / 3;
     values[index] = dot_intensity;
@@ -121,7 +125,7 @@ int next_index (int current_index, int direction, int numPixels) {
     return (raw_index + numPixels) % numPixels;
 }
 
-void redraw_rainbow_colours () {
+void update_rainbow_colours () {
     bool isDirty = false;
 
     if ((ticks % R_TICKS) == 0 ) {
@@ -152,17 +156,23 @@ void redraw_rainbow_colours () {
         int inner_b_values[INNER_RING_PIXELS] = {0};
         fill_band_values (INNER_RING_PIXELS, INNER_BAND_WIDTH, inner_b_index, inner_b_values);
 
-        inner_pixels.clear();
+        #if PIXEL_STRINGS == 2
+            inner_pixels.clear();
+        #endif
+
         for (int i = 0; i < INNER_RING_PIXELS; i++) {
             int r = inner_r_values[i];
             int g = inner_g_values[i];
             int b = inner_b_values[i];
 
-            if (r + g + b > 0) {
-                inner_pixels.setPixelColor(i, inner_pixels.Color(r, g, b));
-            }
+            #if PIXEL_STRINGS == 1
+                combined_pixels.setPixelColor(INNER_RING_PIXEL_OFFSET + i, combined_pixels.Color(r, g, b));                
+            #elif PIXEL_STRINGS ==2
+                if (r + g + b > 0) {
+                    inner_pixels.setPixelColor(i, inner_pixels.Color(r, g, b));
+                }
+            #endif
         }
-        inner_pixels.show();
 
         int outer_r_values[OUTER_RING_PIXELS] = {0};
         fill_band_values (OUTER_RING_PIXELS, OUTER_BAND_WIDTH, outer_r_index, outer_r_values);
@@ -173,68 +183,114 @@ void redraw_rainbow_colours () {
         int outer_b_values[OUTER_RING_PIXELS] = {0};
         fill_band_values (OUTER_RING_PIXELS, OUTER_BAND_WIDTH, outer_b_index, outer_b_values);
 
-        outer_pixels.clear();
+        #if PIXEL_STRINGS == 2
+            outer_pixels.clear();
+        #endif
+
         for (int i = 0; i < OUTER_RING_PIXELS; i++) {
             int r = outer_r_values[i];
             int g = outer_g_values[i];
             int b = outer_b_values[i];
 
-            if (r + g + b > 0) {
-                outer_pixels.setPixelColor(i, outer_pixels.Color(r, g, b));
-            }
+            #if PIXEL_STRINGS == 1
+                combined_pixels.setPixelColor(OUTER_RING_PIXEL_OFFSET + i, combined_pixels.Color(r, g, b));                
+            #elif PIXEL_STRINGS == 2
+                if (r + g + b > 0) {
+                    outer_pixels.setPixelColor(i, outer_pixels.Color(r, g, b));
+                }
+            #endif
         }
-        outer_pixels.show();
+
+        #if PIXEL_STRINGS == 1
+            combined_pixels.show();
+        #elif PIXEL_STRINGS == 2
+            inner_pixels.show();
+            outer_pixels.show();
+        #endif
     }
 }
 
-void redraw_pixels () {
+void update_pixels () {
     // Give visible feedback if the IR system doesn't initialise correctly.
     if (colourMode == 999) {
         bool lightInner = ((ticks % TICKS_PER_ERROR_TOGGLE) < (TICKS_PER_ERROR_TOGGLE / 2));
         bool lightOuter = !lightInner;
 
-        if (lightInner) {
-            inner_pixels.fill(inner_pixels.Color(64, 0, 0), 0, INNER_RING_PIXELS);
-        }
-        else {
-            inner_pixels.clear();
-        }
-        inner_pixels.show();
+        #if PIXEL_STRINGS == 1
+            uint32_t inner_colour = combined_pixels.Color((lightInner ? 64 : 0), 0, 0);
+            combined_pixels.fill(inner_colour, INNER_RING_PIXEL_OFFSET, INNER_RING_PIXELS);
 
-        if (lightOuter) {
-            outer_pixels.fill(outer_pixels.Color(32, 0, 0), 0, OUTER_RING_PIXELS);
-        }
-        else {
-            outer_pixels.clear();
-        }
-        outer_pixels.show();        
+            uint32_t outer_colour = combined_pixels.Color((lightOuter ? 32: 0), 0, 0);
+            combined_pixels.fill(outer_colour, OUTER_RING_PIXEL_OFFSET, OUTER_RING_PIXELS);
+
+            combined_pixels.show();
+        #elif PIXEL_STRINGS == 2
+            if (lightInner) {
+                inner_pixels.fill(inner_pixels.Color(64, 0, 0), 0, INNER_RING_PIXELS);
+            }
+            else {
+                inner_pixels.clear();
+            }
+            inner_pixels.show();
+
+            if (lightOuter) {
+                outer_pixels.fill(outer_pixels.Color(32, 0, 0), 0, OUTER_RING_PIXELS);
+            }
+            else {
+                outer_pixels.clear();
+            }
+            inner_pixels.show();
+            outer_pixels.show();
+        #endif
     } 
     else if (colourMode == 2) {
-        redraw_rainbow_colours();
+        update_rainbow_colours();
     }
     else {
         TARGET_COLOUR colour_to_paint =  colourMode == 0 ? current_colour : COLOUR_WHEEL[continuous_colour_change_index];
 
-        double inner_brightness_percentage_per_colour = (combined_brightness + colour_pulse_brightness_offset) / 255.0;
-        uint32_t inner_colour = inner_pixels.Color(
-            colour_to_paint.r * inner_brightness_percentage_per_colour,
-            colour_to_paint.g * inner_brightness_percentage_per_colour,
-            colour_to_paint.b * inner_brightness_percentage_per_colour
-        );
-
-        inner_pixels.fill(inner_colour, 0, INNER_RING_PIXELS);
-        inner_pixels.show();
+        double inner_brightness_percentage_per_colour = (colour_pulse_brightness_percentage / 100.0);
 
         // The rings should pulse in opposition to each other.
-        double outer_brightness_percentage_per_colour = (combined_brightness - colour_pulse_brightness_offset) / 255.0;
-        uint32_t outer_colour = outer_pixels.Color(
-            colour_to_paint.r * outer_brightness_percentage_per_colour,
-            colour_to_paint.g * outer_brightness_percentage_per_colour,
-            colour_to_paint.b * outer_brightness_percentage_per_colour
-        );
+        double outer_brightness_percentage_per_colour = ((100.0 - colour_pulse_brightness_percentage) / 100.0);
 
-        outer_pixels.fill(outer_colour, 0, OUTER_RING_PIXELS);
-        outer_pixels.show();
+        #if PIXEL_STRINGS == 1
+            uint32_t inner_colour = combined_pixels.Color(
+                colour_to_paint.r * inner_brightness_percentage_per_colour,
+                colour_to_paint.g * inner_brightness_percentage_per_colour,
+                colour_to_paint.b * inner_brightness_percentage_per_colour
+            );
+
+            combined_pixels.fill(inner_colour, INNER_RING_PIXEL_OFFSET, INNER_RING_PIXELS);
+
+            // The rings should pulse in opposition to each other.
+            uint32_t outer_colour = combined_pixels.Color(
+                colour_to_paint.r * outer_brightness_percentage_per_colour,
+                colour_to_paint.g * outer_brightness_percentage_per_colour,
+                colour_to_paint.b * outer_brightness_percentage_per_colour
+            );
+
+            combined_pixels.fill(outer_colour, OUTER_RING_PIXEL_OFFSET, OUTER_RING_PIXELS);
+            combined_pixels.show();
+        #elif PIXEL_STRINGS == 2
+            uint32_t inner_colour = inner_pixels.Color(
+                colour_to_paint.r * inner_brightness_percentage_per_colour,
+                colour_to_paint.g * inner_brightness_percentage_per_colour,
+                colour_to_paint.b * inner_brightness_percentage_per_colour
+            );
+
+            inner_pixels.fill(inner_colour, 0, INNER_RING_PIXELS);
+            inner_pixels.show();
+
+            uint32_t outer_colour = outer_pixels.Color(
+                colour_to_paint.r * outer_brightness_percentage_per_colour,
+                colour_to_paint.g * outer_brightness_percentage_per_colour,
+                colour_to_paint.b * outer_brightness_percentage_per_colour
+            );
+
+            outer_pixels.fill(outer_colour, 0, OUTER_RING_PIXELS);
+            outer_pixels.show();
+        #endif
     }
 }
 
@@ -271,15 +327,20 @@ uint8_t rx_address, rx_data, previous_rx_data;
 
 void poll_infrared () {
     // Adapted from pico-examples
-    while (!pio_sm_is_rx_fifo_empty(pio, rx_sm)) {
-        uint32_t rx_frame = pio_sm_get(pio, rx_sm);
+    while (!pio_sm_is_rx_fifo_empty(pio0, rx_sm)) {
+        uint32_t rx_frame = pio_sm_get(pio0, rx_sm);
 
         if (nec_decode_frame(rx_frame, &rx_address, &rx_data)) {
             // Brief flicker to give the impression that something was received.
-            inner_pixels.clear();
-            inner_pixels.show();
-            outer_pixels.clear();
-            outer_pixels.show();
+            #if PIXEL_STRINGS == 1
+                combined_pixels.clear();
+                combined_pixels.show();
+            #elif PIXEL_STRINGS == 2
+                inner_pixels.clear();
+                inner_pixels.show();
+                outer_pixels.clear();
+                outer_pixels.show();
+            #endif
 
             if (rx_data != previous_rx_data) {
                 int old_brightness = combined_brightness;
@@ -313,13 +374,13 @@ void poll_infrared () {
                         // 00:15 - Increase brightness
                         case 0x15:
                             if (combined_brightness <= (MAX_BRIGHTNESS - BRIGHTNESS_DELTA)) {
-                                combined_brightness += BRIGHTNESS_DELTA;
+                              combined_brightness += BRIGHTNESS_DELTA;
                             }
                             break;
                         // 00:09 - Decrease brightness
                         case 0x09:
                             if (combined_brightness >= (MIN_BRIGHTNESS + BRIGHTNESS_DELTA)) {
-                                combined_brightness -= BRIGHTNESS_DELTA;
+                              combined_brightness -= BRIGHTNESS_DELTA;
                             }
                             break;
                         // 00:16 - Red
@@ -394,10 +455,15 @@ void poll_infrared () {
 
                 if (wasLit) {
                     // Turn off all pixels.
-                    inner_pixels.fill(inner_pixels.Color(0,0,0));
-                    inner_pixels.show();
-                    outer_pixels.fill(outer_pixels.Color(0,0,0));
-                    outer_pixels.show();
+                    #if PIXEL_STRINGS == 1
+                        combined_pixels.fill(combined_pixels.Color(0,0,0));
+                        combined_pixels.show();
+                    #elif PIXEL_STRINGS == 2
+                        inner_pixels.fill(inner_pixels.Color(0,0,0));
+                        inner_pixels.show();
+                        outer_pixels.fill(outer_pixels.Color(0,0,0));
+                        outer_pixels.show();
+                    #endif
                 }                    
             }
 
@@ -420,13 +486,21 @@ int main() {
 
         // Adjust solid colour brightness automatically every few ticks
         if ((ticks % COLOUR_PULSE_TICKS) == 0) {
-            colour_pulse_brightness_offset += colour_pulse_direction;
+            colour_pulse_brightness_percentage += (colour_pulse_brightness_direction * COLOUR_PULSE_PERCENTAGE_INCREMENT);
 
-            if (colour_pulse_brightness_offset == COLOUR_PULSE_RANGE) {
-                colour_pulse_direction *= -1;
+            if (colour_pulse_brightness_percentage > 100) {
+                colour_pulse_brightness_percentage = 100;
             }
-            else if (colour_pulse_brightness_offset == (COLOUR_PULSE_RANGE * -1)) {
-                colour_pulse_direction *= -1;
+            if (colour_pulse_brightness_percentage < 0) {
+                colour_pulse_brightness_percentage = 0;
+            }
+
+            // "Bounce" at the ends
+            if (colour_pulse_brightness_percentage >= 100) {
+                colour_pulse_brightness_direction = -1;
+            }
+            if (colour_pulse_brightness_percentage <= 0) {
+                colour_pulse_brightness_direction = 1;
             }
         }
 
@@ -435,7 +509,7 @@ int main() {
         }
 
         if (isLit) {
-            redraw_pixels();
+            update_pixels();
         }
 
         ticks++;
